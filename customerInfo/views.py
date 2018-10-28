@@ -39,7 +39,7 @@ class Transaction(APIView):  # allowed only post and option
             customerAmount = customerAmount - transactionAmount
 
         account_serializer = AccountSerializer(customerAccount[0],
-                                         data={"accountBalance": customerAmount, "accountType": "SB", "customer": 1})
+                                         data={"accountBalance": customerAmount, "accountType": customerAccount[0].accountType, "customer": customerAccount[0].customer.pk})
 
         if account_serializer.is_valid():
             account = account_serializer.save()
