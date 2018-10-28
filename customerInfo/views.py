@@ -6,12 +6,20 @@ from .serializer import *
 import decimal
 from rest_framework import generics
 from rest_framework import viewsets, status
-
+from django.http import HttpResponse
 ###hello
+
+def home(request):
+    return HttpResponse(r"<h1>Hello and Welcome to customer API<h1></br>Please Click for the documentation url:<a href='/docs/'>Swagger URL<a>")
 
 class CustomerViewSet(viewsets.ModelViewSet):
     queryset = Customer.objects.all()
     serializer_class = CustomerSerializer
+
+
+class AccountViewSet(viewsets.ModelViewSet):
+    queryset = Account.objects.all()
+    serializer_class = AccountSerializer
 
 
 from rest_framework.views import APIView
