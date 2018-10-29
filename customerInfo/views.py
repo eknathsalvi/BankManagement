@@ -12,7 +12,7 @@ from django.http import HttpResponse
 def home(request):
     return HttpResponse(r"<h1>Hello and Welcome to customer API<h1></br>Please Click for the documentation url:<a href='/docs/'>Swagger URL<a>")
 
-class CustomerViewSet(viewsets.ModelViewSet):
+class CustomerViewSet(viewsets.ModelViewSet):#add/update/delete/post
     queryset = Customer.objects.all()
     serializer_class = CustomerSerializer
 
