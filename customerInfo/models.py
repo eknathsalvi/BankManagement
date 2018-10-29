@@ -5,7 +5,7 @@ class Customer(models.Model):
     customerID = models.AutoField(primary_key=True)
     customerName = models.CharField(max_length=30)
     password = models.CharField(max_length=30)
-    customerAge = models.IntegerField(max_length=30)
+    customerAge = models.IntegerField()
     profileImage = models.ImageField(upload_to="customerImages", blank=True, null=True)
 
     def __str__(self):
